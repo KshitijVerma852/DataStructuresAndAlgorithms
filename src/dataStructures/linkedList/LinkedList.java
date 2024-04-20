@@ -34,8 +34,26 @@ public class LinkedList implements ILinkedList {
         }
     }
 
-    public void insert(int value, int index) {
+    private Node traverseToIndex(int index) {
+        Node currNode = head;
+        for (int x = 0; x < index; x++) {
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
 
+    public void insert(int value, int index) {
+        if (length == 0) return;
+        if (index == 0) prepend(value);
+        else if (index == length - 1) append(value);
+        else {
+            Node prevNode = traverseToIndex(index - 1);
+            Node nextNode = prevNode.next;
+            Node newNode = new Node(prevNode, value, nextNode);
+            prevNode.next = newNode;
+            nextNode.prev = newNode;
+            length++;
+        }
     }
 
     public void printList() {
