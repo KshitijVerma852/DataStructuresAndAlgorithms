@@ -7,5 +7,7 @@ public interface ILinkedList {
 
     void insert(int value, int index);
 
+    void delete(int index);
+
     void printList();
 }

@@ -56,6 +56,30 @@ public class LinkedList implements ILinkedList {
         }
     }
 
+    public void delete(int index) {
+        if (length == 0) return;
+        if (index == 0) {
+            Node nextNode = head.next;
+            nextNode.prev = null;
+            head.next = null;
+            head = nextNode;
+        } else if (index == length - 1) {
+            Node prevNode = tail.prev;
+            tail.prev = null;
+            prevNode.next = null;
+            tail = prevNode;
+        } else {
+            Node delNode = traverseToIndex(index);
+            Node prevNode = delNode.prev;
+            Node nextNode = delNode.next;
+            delNode.prev = null;
+            delNode.next = null;
+            prevNode.next = nextNode;
+            nextNode.prev = prevNode;
+        }
+        length--;
+    }
+
     public void printList() {
         Node currNode = head;
         int[] ans = new int[length];

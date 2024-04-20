@@ -8,6 +8,7 @@ public class Main {
         linkedList.append(2);
         linkedList.prepend(10);
         linkedList.insert(35, 2);
+        linkedList.delete(2);
         linkedList.printList();
     }
 }
