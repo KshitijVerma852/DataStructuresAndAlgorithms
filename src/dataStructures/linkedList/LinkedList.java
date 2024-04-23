@@ -89,4 +89,16 @@ public class LinkedList implements ILinkedList {
         }
         System.out.println(Arrays.toString(ans));
     }
+
+    public Node getHead() {
+        return head;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public Node getTail() {
+        return tail;
+    }
 }

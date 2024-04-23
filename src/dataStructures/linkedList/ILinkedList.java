@@ -10,4 +10,8 @@ public interface ILinkedList {
     void delete(int index);
 
     void printList();
+
+    Node getHead();
+
+    int getLength();
 }
