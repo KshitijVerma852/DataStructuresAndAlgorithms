@@ -45,7 +45,8 @@ public class LinkedList implements ILinkedList {
     public void insert(int value, int index) {
         if (length == 0) return;
         if (index == 0) prepend(value);
-        else if (index == length - 1) append(value);
+        else if (index == length) append(value);
+        else if (index > length) return;
         else {
             Node prevNode = traverseToIndex(index - 1);
             Node nextNode = prevNode.next;
