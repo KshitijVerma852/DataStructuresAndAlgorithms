@@ -81,6 +81,16 @@ public class LinkedList implements ILinkedList {
         length--;
     }
 
+    public int getMiddleValue() {
+        Node currNode = head;
+        int iterations = length % 2 == 0 ? length / 2 : (length - 1) / 2;
+
+        for (int i = 0; i < iterations; i++) {
+            currNode = currNode.next;
+        }
+        return currNode.value;
+    }
+
     public void printList() {
         Node currNode = head;
         int[] ans = new int[length];

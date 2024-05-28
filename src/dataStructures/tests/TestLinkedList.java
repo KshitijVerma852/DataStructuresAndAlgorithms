@@ -144,4 +144,52 @@ public class TestLinkedList {
         assertEquals(2, list.getLength(), "Length should remain unchanged when inserting out of bounds");
         assertNull(list.getHead().next.next, "No third node should exist");
     }
+
+    @Test
+    void testDeleteFirstNode() {
+        list.append(10);
+        list.append(20);
+        list.delete(0);
+        assertEquals(1, list.getLength());
+        assertEquals(20, list.getHead().value);
+        assertNull(list.getHead().prev);
+    }
+
+    @Test
+    void testDeleteLastNode() {
+        list.append(10);
+        list.append(20);
+        list.delete(1);
+        assertEquals(1, list.getLength());
+        assertEquals(10, list.getTail().value);
+        assertNull(list.getTail().next);
+    }
+
+    @Test
+    void testDeleteMiddleNode() {
+        list.append(10);
+        list.append(20);
+        list.append(30);
+        list.delete(1);
+        assertEquals(2, list.getLength());
+        assertEquals(30, list.getTail().value);
+    }
+
+    @Test
+    void testGetMiddleValueWithOddLength() {
+        for (int x = 1; x < 10; x++) {
+            list.append(x);
+        }
+        assertEquals(9, list.getLength());
+        assertEquals(5, list.getMiddleValue());
+    }
+
+    @Test
+    void testGetMiddleValueWithEvenLength() {
+        for (int x = 0; x < 10; x++) {
+            list.append(x);
+        }
+        assertEquals(10, list.getLength());
+        assertEquals(5, list.getMiddleValue());
+    }
 }
